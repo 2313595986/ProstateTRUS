@@ -224,25 +224,6 @@ class FeatureFusion(nn.Module):
         return fusion_attention_feature
 
 
-c
-        self.conv3 = nn.Conv3d(int(in_channels/2), in_channels, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
-        self.bn3 = nn.InstanceNorm3d(in_channels)
-
-    def forward(self, f1, f2, fusion_feature_last):
-        avg_feature = torch.mean(torch.stack([f1, f2], dim=0), dim=0)
-        attention_map1 = self.sigmod(self.bn1(self.conv1(torch.cat((f1, avg_feature), dim=1))))
-        attention_map2 = self.sigmod(self.bn2(self.conv2(torch.cat((f2, avg_feature), dim=1))))
-
-        attention_map_sm1 = torch.exp(attention_map1) / (torch.exp(attention_map1) + torch.exp(attention_map2))
-        attention_map_sm2 = torch.exp(attention_map2) / (torch.exp(attention_map1) + torch.exp(attention_map2))
-
-        attention_feature1 = f1 * attention_map_sm1
-        attention_feature2 = f2 * attention_map_sm2
-
-        fusion_feature_down = self.relu(self.bn3(self.conv3(fusion_feature_last)))
-        fusion_attention_feature = attention_feature1 + attention_feature2 + fusion_feature_down
-        return fusion_attention_feature
-
 
 if __name__ == '__main__':
     import os
