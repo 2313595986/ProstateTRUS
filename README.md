@@ -1,4 +1,8 @@
-# [Multi-modality transrectal ultrasound video classification for identification of clinically significant prostate cancer（ISBI2024）](https://ieeexplore.ieee.org/abstract/document/10635143/)
+# Multi-modality transrectal ultrasound video classification for identification of clinically significant prostate cancer
+📄 Implementation of the paper:
+**" Multi-modality transrectal ultrasound video classification for identification of clinically significant prostate cancer "**  [[ISBI2024]]([https://link.springer.com/chapter/10.1007/978-3-031-72086-4_68](https://ieeexplore.ieee.org/abstract/document/10635143/))
+[[arxiv]]([https://arxiv.org/pdf/2406.14069](https://arxiv.org/pdf/2402.08987))
+
 ## Method
 ![image](https://github.com/user-attachments/assets/66387728-f9c5-4c19-903d-087091ac7dd3)
 
